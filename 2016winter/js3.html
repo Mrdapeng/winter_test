@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+hahha
+
+</div>
+
+<script>
+
+
+    var div1 = document.getElementById('div1');
+
+    div1.onmouseover = function () {
+
+        div1.style.width = '400px';
+        div1.style.background = '#e00';
+    }
+    div1.onmouseout = function () {
+        div1.style.width = '200px';
+        div1.style.background = '#00e'
+
+    }
+
+
+</script>
+</body>
+</html>

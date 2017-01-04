@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+
+        }
+
+        #menu .main-menu {
+
+            width: 120px;
+            height: 30px;
+            float: left;
+            margin-right: 5px;
+            background-color: #ccc;
+        }
+
+        #menu .main-menu-link {
+
+            height: 100%;
+            display: block;
+            line-height: 30px;
+        }
+
+        #menu .sub-menu {
+
+            display: none;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <a href="#" class="main-menu-link">link1</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink1</a></li>
+            <li><a href="#">sublink2</a></li>
+            <li><a href="#">sublink3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#" class="main-menu-link">link1</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink1</a></li>
+            <li><a href="#">sublink2</a></li>
+            <li><a href="#">sublink3</a></li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <a href="#" class="main-menu-link">link1</a>
+        <ul class="sub-menu">
+            <li><a href="#">sublink1</a></li>
+            <li><a href="#">sublink2</a></li>
+            <li><a href="#">sublink3</a></li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var mainmenu = document.getElementsByClassName('main-menu');
+
+    for (var i = 0; i < mainmenu.length; i++) {
+        mainmenu[i].onmouseover = function () {
+            var submenu = this.getElementsByClassName('sub-menu')[0];//ul
+            submenu.style.display = 'block';
+        };
+        mainmenu[i].onmouseout = function () {
+
+            var submenu = this.getElementsByClassName('sub-menu')[0];
+            submenu.style.display = 'none';
+
+        };
+
+
+    }
+
+</script>
+</body>
+</html>

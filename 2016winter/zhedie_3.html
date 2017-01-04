@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+
+            list-style: none;
+        }
+
+        a {
+
+            text-decoration: none;
+        }
+
+        #menu {
+            width: 200px;
+            border: 1px solid #000;
+
+        }
+
+        #menu .sub-menu {
+            display: none;
+        }
+
+        #menu h3 {
+            width: 200px;
+            height: 35px;
+            line-height: 35px;
+            color: #fff;
+            background: #000;
+
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="menu">
+    <li>
+        <h3>本科</h3>
+        <ul class="sub-menu">
+            <li>001</li>
+            <li>001</li>
+            <li>001</li>
+        </ul>
+    </li>
+    <li>
+        <h3>研究生</h3>
+        <ul class="sub-menu">
+            <li>002</li>
+            <li>002</li>
+            <li>002</li>
+        </ul>
+    </li>
+    <li>
+        <h3>博士生</h3>
+        <ul class="sub-menu">
+            <li>003</li>
+            <li>003</li>
+            <li>003</li>
+        </ul>
+    </li>
+</ul>
+
+
+<script>
+    var oMemu = document.getElementById('menu');
+    var ah3 = oMemu.getElementsByTagName('h3');
+    for (var i = 0; i < ah3.length; i++) {
+//        ah3.tobeshow = false;
+
+        ah3[i].onclick = function () {
+            var oul = showBrother(this);
+
+            if (oul.style.display == 'block') {
+
+                oul.style.display = 'none';
+
+
+            } else {
+                oul.style.display = 'block';
+
+            }
+
+        }
+
+
+    }
+
+
+    function showBrother(elem) {
+        do {
+            elem = elem.nextSibling;
+
+        } while (elem && elem.nodeType != 1)
+        return elem;
+
+    }
+
+</script>
+
+</body>
+</html>

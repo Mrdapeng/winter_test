@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            height: 30px;
+        }
+
+        #menu li {
+            margin-right: 10px;
+            width: 120px;
+            height: 30px;
+            background: gray;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            /*//鼠标变小手 */
+            cursor: pointer;
+        }
+
+        #content {
+            border-top: 1px solid black;
+        }
+
+        #contaiter {
+            top: 50%;
+            left: 50%;
+            margin-left: -200px;
+            margin-top: -150px;
+            width: 400px;
+            height: 300px;
+            /*border: 1px dashed #000;*/
+            position: absolute;
+            /*margin:0 auto;//0是里上面的外边距 只有第二个参数能是auto*/
+        }
+
+        #menu .selected {
+            background: #000;
+            color: white;
+        }
+
+        #content div {
+
+            width: 400px;
+            height: 200px;
+            background: gray;
+            display: none;
+        }
+
+        #content .selected {
+            display: block;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+</head>
+
+<body>
+<div id="contaiter">
+    <ul id="menu">
+        <li class="selected">js</li>
+        <li>html</li>
+        <li>css</li>
+    </ul>
+
+    <div id="content">
+        <div class="selected">111</div>
+        <div>222</div>
+        <div>333</div>
+    </div>
+</div>
+<script>
+
+    var oMenu = document.getElementById('menu');
+    var oContent = document.getElementById('content');
+    var ali = oMenu.getElementsByTagName('li');
+    var aDiv = oContent.getElementsByTagName('div');
+    for (var i = 0; i < ali.length; i++) {
+        ali[i].index = i;//自定义属性 作用保存i的值 其实就是索引
+        console.log(ali[i].index);
+        ali[i].onclick = function () {
+            for (var i = 0; i < ali.length; i++) {
+                ali[i].className = '';
+                aDiv[i].className = '';
+            }
+            this.className = 'selected';
+            console.log(this.index);
+            aDiv[this.index].className = 'selected';
+
+        };
+
+
+    }
+
+
+</script>
+</body>
+</html>

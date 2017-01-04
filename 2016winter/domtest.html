@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: #f00;
+        }
+
+        #btn {
+
+            width: 120px;
+            height: 100px;
+        }
+
+        #ul1{
+
+
+        }
+    </style>
+</head>
+<body>
+
+
+<div id="div1">
+
+</div>
+<button id="btn"></button>
+
+<ul id="ul1">
+    <li class="aa">123</li>
+    <li class="aa">456</li>
+</ul>
+
+
+<script>
+
+    var btn = document.getElementById("btn");
+    var div1 = document.getElementById("div1");
+    var aLi=document.getElementsByTagName("li");
+    btn.onclick = function () {
+        div1.style.background = "#00f";
+
+        for (var i = 0; i < aLi.length; i++) {
+            if (aLi[i].className == "aa") {
+
+                aLi[i].style.background="#0ff";
+            }
+
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

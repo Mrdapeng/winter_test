@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+
+            text-decoration: none;
+        }
+
+        ul {
+
+            list-style: none;
+        }
+
+        #menu {
+            width: 200px;
+            border: 1px solid #000;
+        }
+
+        #menu h3 {
+            width: 200px;
+            height: 35px;
+            background: #000000;
+            color: #fff;
+            line-height: 35px;
+        }
+
+        #menu .sub-menu {
+
+            display: none;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+
+
+<ul id="menu">
+    <li class="main-menu">
+        <h3>管理区</h3>
+        <ul class="sub-menu">
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>交流区</h3>
+        <ul class="sub-menu">
+            <li>001</li>
+            <li>002</li>
+            <li>003</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    var omenu = document.getElementById('menu');
+    var ah3 = omenu.getElementsByTagName("h3");
+    //    var bShow = false;//标示位 用来标示是否显示 如果为true代表显示 反之 代表隐藏
+
+    for (var i = 0; i < ah3.length; i++) {
+//        ah3[i].bshow = false;
+        ah3[i].onclick = function () {
+
+            //找下一个兄弟 ie里面 是
+            //this.nextSibling
+            //this.nextElementSibling.style.display = 'block';
+
+            //重点 操作谁谁就是this
+
+            var oUl = next(this);
+
+
+//            alert(oUl.style.display);
+            //.style 获取内联样式
+
+//
+//            if (oUl.display == "none" || oUl.display == "") {
+//
+//            }
+
+
+            if (oUl.style.display = "block") {
+
+                oUl.style.display = "none";
+            } else {
+
+                oUl.style.display = "block";
+            }
+
+//            if (this.bShow) {
+//
+//                oUl.style.display = "none";
+////                bShow = false;
+//            } else {
+//
+//                oUl.style.display = "block";
+////                bShow = true;
+//            }
+//            this.bshow = !this.bshow;
+
+
+            if (oUl.display == 'block') {
+                oUl.display = 'none';
+            } else {
+                oUl.style.display = 'block';
+            }
+
+        };
+    }
+
+    function next(element) {
+
+        do {
+            element = element.nextSibling;
+        }//while(element&&element.type!=1) 检测elem是否是有效的 是不是空
+        while (element.nodeType != null && element.nodeType != 1)
+
+        return element;
+    }
+
+</script>
+</body>
+</html>
