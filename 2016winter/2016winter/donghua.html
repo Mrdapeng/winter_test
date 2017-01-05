@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+
+        * {
+
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 150px;
+            background: red;
+            position: relative;
+        }
+
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="mydiv">
+
+</div>
+<button id="btn">aaaa</button>
+<script>
+
+    var odiv = document.getElementById('mydiv');
+    var btn = document.getElementById('btn');
+    btn.onclick=function () {
+
+        var timer = setInterval(function () {
+            odiv.style.left = odiv.offsetLeft + 10 + "px";
+            if (odiv.offsetLeft > 500) {
+                clearInterval(timer);
+            }
+        }, 50);
+    };
+</script>
+</body>
+</html>

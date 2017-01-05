@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        ul {
+
+            list-style: none;
+        }
+
+        img {
+
+            border: 0;
+        }
+
+        #container {
+            width: 400px;
+            height: 400px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #imgs img {
+
+            display: none;
+        }
+
+        #imgs .selected {
+
+            display: none;
+
+        }
+
+        #tab {
+
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        #tab li {
+            width: 20px;
+            height: 20px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        #tab .selected {
+            background: orange;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container">
+    <div id="imgs">
+
+        <img class="selected" src="1.jpg" alt="pic" title="标题">
+        <img src="1.jpg" alt="pic" title="标题">
+        <img src="1.jpg" alt="pic" title="标题">
+        <img src="1.jpg" alt="pic" title="标题">
+    </div>
+
+    <ul id="tab">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+
+    </ul>
+    <!--span行级元素-->
+    <span id="arrows">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </span>
+
+</div>
+
+<script>
+
+
+    //    setInterval(function () {
+    //        console.log("cool");
+    //    }, 1000);
+    //    var i = 0;
+    //    setTimeout(function () {
+    //        console.log(i++)
+    //
+    //    }, 1000);
+</script>
+
+</body>
+</html>

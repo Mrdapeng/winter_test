@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    //this是对当前对象的引用 this只能在func
+    var person = new Object();
+    person.name = "lisi";
+    person.age = 35;
+    person.sayhellow = function () {
+
+
+        console.log(this.name + "cool")
+    }
+    person.sayhellow();
+
+
+    var cat = new Object();
+    cat.prototype;
+
+    var add = function (num1, num2) {
+        return num1 + num2;
+    }
+
+</script>
+</body>
+</html>

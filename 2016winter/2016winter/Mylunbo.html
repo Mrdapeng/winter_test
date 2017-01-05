@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <style>
+
+        * {
+
+            padding: 0;
+            margin: 0;
+
+        }
+
+        ul {
+            list-style: none;
+
+        }
+
+        img {
+            border: 0;
+        }
+
+        #container {
+
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #imgs img {
+
+            display: none;
+        }
+
+        #imgs .selected {
+
+            display: block;
+        }
+
+        #tab {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        #tab li {
+
+            width: 20px;
+            height: 20px;
+            background: #000;
+            color: #fff;
+            float: left;
+            margin-right: 5px;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+
+        }
+
+        #tab .selected {
+
+            background: orange;
+
+        }
+
+        #arrows {
+
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #arrows span {
+
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+            background: #000;
+            color: #ffffff;
+
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="container">
+    <div id="imgs">
+        <img class="selected" src="img/1.jpg" alt="1">
+        <img src="img/2.jpg" alt="2">
+        <img src="img/3.jpg" alt="3">
+        <img src="img/4.jpg" alt="4">
+    </div>
+
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <span id="arrows">
+    <span id="prev">&lt;</span>
+    <span id="next">&gt;</span>
+</span>
+</div>
+
+<script>
+    var oTab = document.getElementById('tab');
+    var aLi = document.getElementsByTagName('li');
+    var iNow = 0;
+    var oImgs = document.getElementById('imgs');
+    var aImg = oImgs.getElementsByTagName('img');
+    var oPrev = document.getElementById('prev');
+    var onext = document.getElementById('next');
+    var oContainer = document.getElementById("container");
+    var timer;
+    for (var i = 0; i < aLi.length; i++) {
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+            iNow = this.index;
+
+            changImg();
+
+        };
+
+
+    }
+    oPrev.onclick = onext.onclick = function () {
+
+        if (this == onext) {
+            iNow++;
+            if (iNow == aImg.length) {
+
+                iNow = 0;
+            }
+
+
+        } else {
+            iNow--;
+            if (iNow == -1) {
+                iNow = aImg.length - 1;
+            }
+
+
+        }
+        changImg();
+
+    };
+    play();
+
+    oContainer.onmouseover = function () {
+        clearInterval(timer);
+    };
+    oContainer.onmouseout = function () {
+        play();
+    };
+    function changImg() {
+        for (var i = 0; i < aLi.length; i++) {
+
+            aLi[i].className = '';
+            aImg[i].className = '';
+
+        }
+        aLi[iNow].className = "selected";
+        aImg[iNow].className = "selected";
+
+    }
+
+    function play() {
+        timer = setInterval(function () {
+            onext.onclick();
+        }, 500);
+
+    }
+</script>
+</body>
+</html>
